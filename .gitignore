@@ -4,6 +4,7 @@ obj/
 
 # NuGet Packages
 Packages/
+*.nupkg
 
 #User Specific Files
 *.user
