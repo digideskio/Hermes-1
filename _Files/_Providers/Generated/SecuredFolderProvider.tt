@@ -1,0 +1,11 @@
+<# Add_Class(a:="Files.Providers") #>
+<# Add_Field(n:="Name", t:="System.String", i:="Hermes.Files.IContainerDocumentProvider.Name") #>
+<# Add_Field(n:="Support_Interaction", t:="System.Boolean", i:="Hermes.Files.IContainerDocumentProvider.Support_Interaction", f:="###False") #>
+<# Add_Field(n:="Root_Path", t:="System.String") #>
+<# Add_Field(n:="File_Filters", t:="System.String()") #>
+<# Add_Field(n:="Path_Filter", t:="System.String", f:="* [{0}]") #>
+<# Add_Field(n:="Sub_Path_Filter", t:="System.String", f:="*") #>
+<# Add_Field(n:="Required_Roles", t:="System.String()", i:="Hermes.Files.IContainerDocumentProvider.Roles") #>
+<# Add_Field(n:="Sort_Type", t:="Hermes.Files.SortType", f:="Hermes.Files.SortType.Last_Modified") #>
+<# Add_Field(n:="SV", t:="Hermes.Authentication.Server", f:="NEW") #>
+<#@ include file="%TEMPLATES_PATH%\Classes\VB_Object.tt" #>

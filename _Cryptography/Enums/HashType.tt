@@ -1,0 +1,8 @@
+<# Add_Class(a:="Cryptography", d:="Enum Representing Cryptographic Hash Algorithm") #>
+<# Add_Enum(n:="MD5", d:="MD5 Algorithm") #>
+<# Add_Enum(n:="FNV_MOD", d:="FNV Algorithm") #>
+<# Add_Enum(n:="SHA1", d:="SHA-1 Algorithm") #>
+<# Add_Enum(n:="SHA256", d:="SHA-256 Algorithm") #>
+<# Add_Enum(n:="SHA384", d:="SHA-384 Algorithm") #>
+<# Add_Enum(n:="SHA512", d:="SHA-512 Algorithm") #>
+<#@ include file="%TEMPLATES_PATH%\Classes\VB_Enum.tt" #>

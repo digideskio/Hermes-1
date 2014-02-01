@@ -1,0 +1,5 @@
+<# Add_Class(a:="Authentication", d:="Enum Representing JWT Hash Algorithms") #>
+<# Add_Enum(n:="HS256") #>
+<# Add_Enum(n:="HS384") #>
+<# Add_Enum(n:="HS512") #>
+<#@ include file="%TEMPLATES_PATH%\Classes\VB_Enum.tt" #>

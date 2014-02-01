@@ -1,0 +1,5 @@
+﻿<# Add_Class(a:="Email") #>
+<# Add_Field(n:="Type", t:="HeaderType") #>
+<# Add_Field(n:="Name", t:="System.String") #>
+<# Add_Field(n:="Value", t:="System.String") #>
+<#@ include file="%TEMPLATES_PATH%\Classes\VB_Object.tt" #>

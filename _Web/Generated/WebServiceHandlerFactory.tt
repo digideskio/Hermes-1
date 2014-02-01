@@ -1,0 +1,4 @@
+<# Add_Class(a:="Web.Handlers", d:="Web-Service Loading Handler Factory") #>
+<# Add_Field(n:="Ajax_Assembly", a:="R", t:="System.Reflection.Assembly", f:="GetType(System.Web.Script.Services.GenerateScriptTypeAttribute).Assembly") #>
+<# Add_Field(n:="HandlerFactory", t:="System.Web.IHttpHandlerFactory") #>
+<#@ include file="%TEMPLATES_PATH%\Classes\VB_Object.tt" #>

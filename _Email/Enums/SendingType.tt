@@ -1,0 +1,4 @@
+<# Add_Class(a:="Email", d:="Enum Representing Sending Type") #>
+<# Add_Enum(n:="Blind_Carbon_Copy", v:=0) #>
+<# Add_Enum(n:="Single_Recipient", v:=1) #>
+<#@ include file="%TEMPLATES_PATH%\Classes\VB_Enum.tt" #>

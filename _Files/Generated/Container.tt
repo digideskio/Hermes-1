@@ -1,0 +1,8 @@
+﻿<# Add_Class(a:="Files") #>
+<# Add_Behaviour(n:="Comparable", p:="Fd_Comparable:Name") #>
+<# Add_Behaviour(n:="Formattable", p:="Fo_Names:|Fo_Values:{Name}") #>
+<# Add_Behaviour(n:="Propertychangeable") #>
+<# Add_Behaviour(n:="Serialisable", p:="Se_Full:False") #>
+<# Add_Field(n:="Name", t:="System.String") #>
+<# Add_Field(n:="Parent", t:="Container") #>
+<#@ include file="%TEMPLATES_PATH%\Classes\VB_Object.tt" #>

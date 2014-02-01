@@ -1,0 +1,5 @@
+<# Add_Class(a:="Files", d:="Enum Representing Sort Types") #>
+<# Add_Enum(n:="Last_Modified", v:=0, d:="Descending Sort Based on Last Modified Date.") #>
+<# Add_Enum(n:="By_Name", v:=1, d:="Ascending Sort Based on Name.") #>
+<# Add_Enum(n:="By_Name_Desc", v:=2, d:="Descending Sort Based on Name.") #>
+<#@ include file="%TEMPLATES_PATH%\Classes\VB_Enum.tt" #>

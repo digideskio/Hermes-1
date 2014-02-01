@@ -1,0 +1,11 @@
+﻿<# Add_Class(a:="Authentication", p:="Post_Construction()") #>
+<# Add_Behaviour(n:="Disposable", p:="Di_PostCall:|Close_Log()") #>
+<# Add_Field(n:="Log_Path", t:="System.String", a:="R", f:="##Initialise_Log_Path()") #>
+<# Add_Field(n:="Cookie_Domain", t:="System.String", a:="R", f:="##Initialise_Cookie_Domain()") #>
+<# Add_Field(n:="Cookie_Name", t:="System.String", a:="R", f:="##Initialise_Cookie_Name()") #>
+<# Add_Field(n:="Cookie_ExpiresInDays", t:="System.Int32", a:="R", f:="##Initialise_Cookie_ExpiresInDays()") #>
+<# Add_Field(n:="Cookie_EncryptionKey", t:="System.String", a:="R", f:="##Initialise_Cookie_EncryptionKey()") #>
+<# Add_Field(n:="Providers_RelativePath", t:="System.String", a:="R", f:="##Initialise_Providers_RelativePath()") #>
+<# Add_Field(n:="Providers", t:="Hermes.Authentication.IAuthenticationProvider()", a:="R", f:="##Initialise_AuthenticationProviders()") #>
+<# Add_Field(n:="Server_HashPath", t:="System.String", a:="R", f:="##Initialise_Server_HashPath()") #>
+<#@ include file="%TEMPLATES_PATH%\Classes\VB_Object.tt" #>

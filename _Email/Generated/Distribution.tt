@@ -1,0 +1,4 @@
+﻿<# Add_Class(a:="Email") #>
+<# Add_Field(n:="Sending_Format", t:="SendingType") #>
+<# Add_Field(n:="Addresses", t:="System.Collections.Generic.List(Of System.Net.Mail.MailAddress)", f:="NEW") #>
+<#@ include file="%TEMPLATES_PATH%\Classes\VB_Object.tt" #>

@@ -1,0 +1,14 @@
+﻿<# Add_Class(a:="Authentication") #>
+<# Add_Behaviour(n:="Comparable") #>
+<# Add_Behaviour(n:="Formattable", p:="Fo_Names:|Fo_Values:{Username}") #>
+<# Add_Field(n:="Id", t:="System.Guid") #>
+<# Add_Field(n:="Authenticated", t:="System.Boolean") #>
+<# Add_Field(n:="Username", t:="System.String") #>
+<# Add_Field(n:="Details", t:="System.String") #>
+<# Add_Field(n:="Roles", t:="System.String()", f:="NEW") #>
+<# Add_Field(n:="Expires", t:="System.DateTime") #>
+<# Add_Field(n:="Version", t:="System.Int32") #>
+<# Add_Field(n:="Authentication_Provider", t:="System.String") #>
+<# Add_Field(n:="Email_Address", t:="System.String") #>
+<# Add_Field(n:="RawValue", t:="System.String") #>
+<#@ include file="%TEMPLATES_PATH%\Classes\VB_Object.tt" #>

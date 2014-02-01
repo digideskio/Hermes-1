@@ -1,0 +1,10 @@
+﻿<# Add_Class(a:="Authentication") #>
+<# Add_Field(n:="Username", t:="System.String") #>
+<# Add_Field(n:="Password", t:="System.String") #>
+<# Add_Field(n:="Domain", t:="System.String") #>
+<# Add_Field(n:="Source", t:="System.String") #>
+<# Add_Field(n:="Agent", t:="System.String") #>
+<# Add_Field(n:="Persistant", t:="System.Boolean") #>
+<# Add_Field(n:="Site", t:="System.String") #>
+<# Add_Field(n:="Created", t:="System.DateTime", a:="R", f:="##DateTime.Now()") #>
+<#@ include file="%TEMPLATES_PATH%\Classes\VB_Object.tt" #>

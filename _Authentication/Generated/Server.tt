@@ -1,0 +1,4 @@
+﻿<# Add_Class(a:="Authentication", p:="Post_Construction()") #>
+<# Add_Behaviour(n:="Disposable", p:="Di_PostCall:|Close_Log()") #>
+<# Add_Field(n:="Settings", t:="Config", a:="R", f:="NEW") #>
+<#@ include file="%TEMPLATES_PATH%\Classes\VB_Object.tt" #>

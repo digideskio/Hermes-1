@@ -1,0 +1,7 @@
+<# Add_Class(a:="Files.Web", p:="Post_Construction()") #>
+<# Add_Behaviour(n:="Disposable", p:="Di_PostCall:|Close_Log()") #>
+<# Add_Field(n:="Log_Path", t:="System.String", a:="R", f:="##Initialise_Log_Path()") #>
+<# Add_Field(n:="RequiresAuthenticationProviders", t:="System.String()", a:="R", f:="##Initialise_RequiresAuthenticationProviders()") #>
+<# Add_Field(n:="Providers_RelativePath", t:="System.String", a:="R", f:="##Initialise_Providers_RelativePath()") #>
+<# Add_Field(n:="Providers", t:="Hermes.Files.IContainerDocumentProvider()", a:="R", f:="##Initialise_Providers()") #>
+<#@ include file="%TEMPLATES_PATH%\Classes\VB_Object.tt" #>

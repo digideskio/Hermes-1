@@ -1,0 +1,8 @@
+﻿<# Add_Class(a:="Authentication.Providers") #>
+<# Add_Field(n:="Name", t:="System.String", i:="Hermes.Authentication.IAuthenticationProvider.Name") #>
+<# Add_Field(n:="Username", t:="System.String") #>
+<# Add_Field(n:="Password", t:="System.String") #>
+<# Add_Field(n:="Roles", t:="System.String()") #>
+<# Add_Field(n:="Details", t:="System.String") #>
+<# Add_Field(n:="Email_Address", t:="System.String") #>
+<#@ include file="%TEMPLATES_PATH%\Classes\VB_Object.tt" #>

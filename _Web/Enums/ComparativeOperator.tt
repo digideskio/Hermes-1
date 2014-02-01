@@ -1,0 +1,8 @@
+<# Add_Class(a:="Web", d:="Enum Representing Comparative Operator ") #>
+<# Add_Enum(n:="None", v:=0) #>
+<# Add_Enum(n:="Equals", v:=1) #>
+<# Add_Enum(n:="Greater_Than", v:=2) #>
+<# Add_Enum(n:="Less_Than", v:=3) #>
+<# Add_Enum(n:="Greater_Than_Or_Equals", v:=4) #>
+<# Add_Enum(n:="Less_Than_Or_Equals", v:=5) #>
+<#@ include file="%TEMPLATES_PATH%\Classes\VB_Enum.tt" #>

@@ -1,0 +1,7 @@
+﻿<# Add_Class(a:="Web", d:="URL Parsing") #>
+<# Add_Field(n:="Base", a:="R", t:="System.String") #>
+<# Add_Field(n:="Relative", a:="R", t:="System.String") #>
+<# Add_Field(n:="Bookmark", a:="R", t:="System.String") #>
+<# Add_Field(n:="Queries", a:="R", t:="System.Collections.Hashtable", f:="NEW") #>
+<# Add_Field(n:="Server", a:="R", t:="System.Web.HttpServerUtility") #>
+<#@ include file="%TEMPLATES_PATH%\Classes\VB_Object.tt" #>

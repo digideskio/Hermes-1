@@ -1,0 +1,5 @@
+<# Add_Class(a:="Authentication") #>
+<# Add_Field(n:="Name", t:="System.String") #>
+<# Add_Field(n:="Details", t:="System.String") #>
+<# Add_Field(n:="Created", t:="System.DateTime", a:="R", f:="##DateTime.Now()") #>
+<#@ include file="%TEMPLATES_PATH%\Classes\VB_Object.tt" #>

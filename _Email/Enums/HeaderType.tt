@@ -1,0 +1,10 @@
+<# Add_Class(a:="Email", d:="Enum Representing Email Header Type") #>
+<# Add_Enum(n:="Meta_Name", v:=0) #>
+<# Add_Enum(n:="Meta_HTTP_Equiv", v:=1) #>
+<# Add_Enum(n:="Base", v:=2) #>
+<# Add_Enum(n:="StylesheetLink", v:=3) #>
+<# Add_Enum(n:="ScriptLink", v:=4) #>
+<# Add_Enum(n:="Script", v:=5) #>
+<# Add_Enum(n:="Style", v:=6) #>
+<# Add_Enum(n:="Title", v:=7) #>
+<#@ include file="%TEMPLATES_PATH%\Classes\VB_Enum.tt" #>

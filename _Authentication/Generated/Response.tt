@@ -1,0 +1,13 @@
+﻿<# Add_Class(a:="Authentication") #>
+<# Add_Behaviour(n:="Comparable", p:="Fd_Comparable:Username") #>
+<# Add_Behaviour(n:="Formattable", p:="Fo_Names:|Fo_Values:{Username}") #>
+<# Add_Behaviour(n:="Propertychangeable") #>
+<# Add_Behaviour(n:="Serialisable", p:="Se_Full:False") #>
+<# Add_Field(n:="Username", t:="System.String") #>
+<# Add_Field(n:="Details", t:="System.String") #>
+<# Add_Field(n:="Expires", t:="System.DateTime") #>
+<# Add_Field(n:="Roles", t:="System.String()") #>
+<# Add_Field(n:="Provider", t:="System.String") #>
+<# Add_Field(n:="Cookie_Value", t:="System.String") #>
+<# Add_Field(n:="Email_Address", t:="System.String") #>
+<#@ include file="%TEMPLATES_PATH%\Classes\VB_Object.tt" #>

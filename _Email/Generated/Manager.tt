@@ -1,0 +1,12 @@
+﻿<# Add_Class(a:="Email") #>
+<# Add_Field(n:="SMTP_Server", t:="System.Net.IPHostEntry") #>
+<# Add_Field(n:="SMTP_Port", t:="System.Int32", f:="25") #>
+<# Add_Field(n:="SMTP_Credential", t:="System.Net.NetworkCredential") #>
+<# Add_Field(n:="SMTP_MaxBatch", t:="System.Int32", d:="Maximum Batch Size for Emails (Zero or Negative means no limit)") #>
+<# Add_Field(n:="SMTP_Timeout", t:="System.Int32", f:="100", d:="Maximum Timeout in Seconds") #>
+<# Add_Field(n:="Client_Application", t:="System.String") #>
+<# Add_Field(n:="Logging_Directory", t:="System.IO.DirectoryInfo") #>
+<# Add_Field(n:="Logging_Day", t:="System.DateTime", f:="System.DateTime.Now()") #>
+<# Add_Field(n:="Suppress_Send", t:="System.Boolean", f:="False") #>
+<# Add_Field(n:="Use_SSL", t:="System.Boolean", f:="False") #>
+<#@ include file="%TEMPLATES_PATH%\Classes\VB_Object.tt" #>

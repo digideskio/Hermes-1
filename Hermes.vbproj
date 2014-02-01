@@ -1,0 +1,295 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <ProjectGuid>{3276FD68-EB40-4D28-8DF0-4868991FD4E8}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Release</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <OutputType>Library</OutputType>
+    <MyType>Windows</MyType>
+    <RootNamespace>Hermes</RootNamespace>
+    <AssemblyName>Hermes</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <OptionInfer>On</OptionInfer>
+    <SignAssembly>true</SignAssembly>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <!-- Note: If MSBuild.Community.Tasks is not installed on Build Machine -->
+    <!-- Set the MSBuildCommunityTasksPath Property in MSBuild.Community.Tasks.Targets (Packages) to '.' e.g. -->
+    <!-- <MSBuildCommunityTasksPath Condition="'$(MSBuildCommunityTasksPath)' == ''">.</MSBuildCommunityTasksPath> -->
+    <MSBuildTasksPath>Packages\MSBuildTasks.1.4.0.65\tools</MSBuildTasksPath>
+    <NUnitToolPath>Packages\NUnit.Runners.2.6.2\tools</NUnitToolPath>
+    <DelaySign>False</DelaySign>
+    <AssemblyOriginatorKeyMode>File</AssemblyOriginatorKeyMode>
+    <RemoveIntegerChecks>True</RemoveIntegerChecks>
+    <OptionExplicit>On</OptionExplicit>
+    <OptionStrict>Off</OptionStrict>
+    <OptionCompare>Binary</OptionCompare>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <RunCodeAnalysis>False</RunCodeAnalysis>
+    <RunSourceAnalysis>False</RunSourceAnalysis>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Platform)' == 'x86' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <RegisterForComInterop>False</RegisterForComInterop>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+    <BaseAddress>4194304</BaseAddress>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <DebugType>Full</DebugType>
+    <Optimize>False</Optimize>
+    <DefineConstants>DEBUG=1,TRACE=1,TESTING=1</DefineConstants>
+    <StartAction>Project</StartAction>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <DebugType>None</DebugType>
+    <Optimize>True</Optimize>
+    <DefineConstants>TRACE=1</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG=1,TRACE=1,TESTING=1</DefineConstants>
+    <DebugType>Full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE=1</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>None</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Platform)' == 'AnyCPU' ">
+    <RegisterForComInterop>False</RegisterForComInterop>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+    <BaseAddress>4194304</BaseAddress>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>false</DebugSymbols>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugSymbols>False</DebugSymbols>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <Reference Include="nunit.framework">
+      <HintPath>Packages\NUnit.2.6.3\lib\nunit.framework.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="_Authentication\Enums" />
+    <Folder Include="_Authentication\_Providers" />
+    <Folder Include="_Authentication\_Providers\Generated" />
+    <Folder Include="_Authentication\_Providers\Partials" />
+    <Folder Include="_Cryptography\Enums" />
+    <Folder Include="_Cryptography\Generated" />
+    <Folder Include="_Files" />
+    <Folder Include="_Files\Enums" />
+    <Folder Include="_Files\Generated" />
+    <Folder Include="_Files\Interfaces" />
+    <Folder Include="_Files\Partials" />
+    <Folder Include="_Files\_Providers" />
+    <Folder Include="_Files\_Providers\Generated" />
+    <Folder Include="_Files\_Providers\Partials" />
+    <Folder Include="_Files\_Web" />
+    <Folder Include="_Files\_Web\Generated" />
+    <Folder Include="_Files\_Web\Partials" />
+    <Folder Include="_Web\_Handlers" />
+    <Folder Include="_Web\_Handlers\Generated" />
+    <Folder Include="_Web\_Handlers\Partials" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Assembly\AssemblyInfo.vb" />
+    <Compile Include="_Authentication\Enums\JwtHashAlgorithm.vb">
+      <DependentUpon>JwtHashAlgorithm.tt</DependentUpon>
+    </Compile>
+    <Compile Include="_Authentication\Generated\Config.vb">
+      <DependentUpon>Config.tt</DependentUpon>
+    </Compile>
+    <Compile Include="_Authentication\Generated\Cookie.vb">
+      <DependentUpon>Cookie.tt</DependentUpon>
+    </Compile>
+    <Compile Include="_Authentication\Generated\Event.vb">
+      <DependentUpon>Event.tt</DependentUpon>
+    </Compile>
+    <Compile Include="_Authentication\Generated\Request.vb">
+      <DependentUpon>Request.tt</DependentUpon>
+    </Compile>
+    <Compile Include="_Authentication\Generated\Response.vb">
+      <DependentUpon>Response.tt</DependentUpon>
+    </Compile>
+    <Compile Include="_Authentication\Generated\Server.vb">
+      <DependentUpon>Server.tt</DependentUpon>
+    </Compile>
+    <Compile Include="_Authentication\Interface\IAuthenticationProvider.vb" />
+    <Compile Include="_Authentication\Partials\Config.vb" />
+    <Compile Include="_Authentication\Partials\Cookie.vb" />
+    <Compile Include="_Authentication\Partials\JWT_SSO.vb" />
+    <Compile Include="_Authentication\Partials\Login.vb" />
+    <Compile Include="_Authentication\Partials\Server.vb" />
+    <Compile Include="_Authentication\Partials\Service.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="_Authentication\Partials\Status.vb" />
+    <Compile Include="_Authentication\_Providers\Generated\SimpleAuthenticator.vb">
+      <DependentUpon>SimpleAuthenticator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="_Authentication\_Providers\Partials\SimpleAuthenticator.vb" />
+    <Compile Include="_Cryptography\Enums\HashType.vb">
+      <DependentUpon>HashType.tt</DependentUpon>
+    </Compile>
+    <Compile Include="_Cryptography\Partials\Cipher.vb" />
+    <Compile Include="_Email\Enums\BodyType.vb">
+      <DependentUpon>BodyType.tt</DependentUpon>
+    </Compile>
+    <Compile Include="_Email\Enums\HeaderType.vb">
+      <DependentUpon>HeaderType.tt</DependentUpon>
+    </Compile>
+    <Compile Include="_Email\Enums\SendingType.vb">
+      <DependentUpon>SendingType.tt</DependentUpon>
+    </Compile>
+    <Compile Include="_Email\Generated\Distribution.vb">
+      <DependentUpon>Distribution.tt</DependentUpon>
+    </Compile>
+    <Compile Include="_Email\Generated\Header.vb">
+      <DependentUpon>Header.tt</DependentUpon>
+    </Compile>
+    <Compile Include="_Email\Generated\Manager.vb">
+      <DependentUpon>Manager.tt</DependentUpon>
+    </Compile>
+    <Compile Include="_Email\Generated\Message.vb">
+      <DependentUpon>Message.tt</DependentUpon>
+    </Compile>
+    <Compile Include="_Email\Partials\Distribution.vb" />
+    <Compile Include="_Email\Partials\Header.vb" />
+    <Compile Include="_Email\Partials\Manager.vb" />
+    <Compile Include="_Email\Partials\Message.vb" />
+    <Compile Include="_Files\Enums\SortType.vb">
+      <DependentUpon>SortType.tt</DependentUpon>
+    </Compile>
+    <Compile Include="_Files\Generated\Container.vb">
+      <DependentUpon>Container.tt</DependentUpon>
+    </Compile>
+    <Compile Include="_Files\Generated\Document.vb">
+      <DependentUpon>Document.tt</DependentUpon>
+    </Compile>
+    <Compile Include="_Files\Interfaces\IContainerDocumentProvider.vb" />
+    <Compile Include="_Files\Partials\Document.vb" />
+    <Compile Include="_Files\_Providers\Generated\FileSystemProvider.vb">
+      <DependentUpon>FileSystemProvider.tt</DependentUpon>
+    </Compile>
+    <Compile Include="_Files\_Providers\Generated\SecuredFolderProvider.vb">
+      <DependentUpon>SecuredFolderProvider.tt</DependentUpon>
+    </Compile>
+    <Compile Include="_Files\_Providers\Partials\FileSystemProvider.vb" />
+    <Compile Include="_Files\_Providers\Partials\SecuredFolderProvider.vb" />
+    <Compile Include="_Files\_Web\Generated\Config.vb">
+      <DependentUpon>Config.tt</DependentUpon>
+    </Compile>
+    <Compile Include="_Files\_Web\Generated\Server.vb">
+      <DependentUpon>Server.tt</DependentUpon>
+    </Compile>
+    <Compile Include="_Files\_Web\Partials\Config.vb" />
+    <Compile Include="_Files\_Web\Partials\File.vb" />
+    <Compile Include="_Files\_Web\Partials\Server.vb" />
+    <Compile Include="_Files\_Web\Partials\Service.vb" />
+    <Compile Include="_Testing\Cryptography\CryptographyTests.vb" />
+    <Compile Include="_Testing\Email\DistributionTests.vb" />
+    <Compile Include="_Testing\Email\ManagerTests.vb" />
+    <Compile Include="_Testing\Email\MessageTests.vb" />
+    <Compile Include="_Testing\Web\UrlTests.vb" />
+    <Compile Include="_Web\Enums\ComparativeOperator.vb">
+      <DependentUpon>ComparativeOperator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="_Web\Generated\Url.vb">
+      <DependentUpon>Url.tt</DependentUpon>
+    </Compile>
+    <Compile Include="_Web\Generated\WebServiceHandlerFactory.vb">
+      <DependentUpon>WebServiceHandlerFactory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="_Web\Partials\Url.vb" />
+    <Compile Include="_Web\Partials\WebServiceHandlerFactory.vb" />
+    <Compile Include="_Web\_Handlers\Generated\JavascriptProxyHandler.vb">
+      <DependentUpon>JavascriptProxyHandler.tt</DependentUpon>
+    </Compile>
+    <Compile Include="_Web\_Handlers\Partials\BrowserDetailsHandler.vb" />
+    <Compile Include="_Web\_Handlers\Partials\GenerateThumbnailHandler.vb" />
+    <Compile Include="_Web\_Handlers\Partials\HttpOptionsHandler.vb" />
+    <Compile Include="_Web\_Handlers\Partials\InterpretedStyleSheetHandler.vb" />
+    <Compile Include="_Web\_Handlers\Partials\JavascriptProxyHandler.vb" />
+    <Compile Include="_Web\_Handlers\Partials\ReturnFirstHandler.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="_Authentication\Enums\JwtHashAlgorithm.tt" />
+    <None Include="_Authentication\Generated\Config.tt" />
+    <None Include="_Authentication\Generated\Cookie.tt" />
+    <None Include="_Authentication\Generated\Event.tt" />
+    <None Include="_Authentication\Generated\Request.tt" />
+    <None Include="_Authentication\Generated\Response.tt" />
+    <None Include="_Authentication\Generated\Server.tt" />
+    <None Include="_Authentication\_Providers\Generated\SimpleAuthenticator.tt" />
+    <None Include="_Cryptography\Enums\HashType.tt" />
+    <None Include="_Email\Enums\BodyType.tt" />
+    <None Include="_Email\Enums\HeaderType.tt" />
+    <None Include="_Email\Enums\SendingType.tt" />
+    <None Include="_Email\Generated\Distribution.tt" />
+    <None Include="_Email\Generated\Header.tt" />
+    <None Include="_Email\Generated\Manager.tt" />
+    <None Include="_Email\Generated\Message.tt" />
+    <None Include="_Files\Enums\SortType.tt" />
+    <None Include="_Files\Generated\Container.tt" />
+    <None Include="_Files\Generated\Document.tt" />
+    <None Include="_Files\_Providers\Generated\FileSystemProvider.tt" />
+    <None Include="_Files\_Providers\Generated\SecuredFolderProvider.tt" />
+    <None Include="_Files\_Web\Generated\Config.tt" />
+    <None Include="_Files\_Web\Generated\Server.tt" />
+    <None Include="_Web\Enums\ComparativeOperator.tt" />
+    <None Include="_Web\Generated\Url.tt" />
+    <None Include="_Web\Generated\WebServiceHandlerFactory.tt" />
+    <None Include="_Web\_Handlers\Generated\JavascriptProxyHandler.tt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Diagnostics" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.Targets" />
+  <Import Project="$(MSBuildTasksPath)\MSBuild.Community.Tasks.Targets" Condition=" '$(Configuration)' == 'Debug' " />
+  <Target Name="AfterBuild" Condition=" '$(Configuration)' == 'Debug' ">
+    <NUnit WorkingDirectory="$(MSBuildProjectDirectory)" Assemblies="$(TargetDir)$(TargetFileName)" ContinueOnError="false" OutputXmlFile="$(TargetDir)$(TargetName)-results.xml" ToolPath="$(NUnitToolPath)" DisableShadowCopy="true" />
+  </Target>
+</Project>
