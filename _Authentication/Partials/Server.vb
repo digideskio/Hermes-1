@@ -134,7 +134,7 @@ Namespace Authentication
 
 		#Region " Public Login Processing Methods "
 
-			Public Function  CheckCookieDomain( _
+			Public Function CheckCookieDomain( _
 				ByVal cookie As HttpCookie _
 			) As HttpCookie
 
@@ -172,6 +172,65 @@ Namespace Authentication
 
 					Add_Cookie(New Cookie(Guid.NewGuid(), True, _request.Username, _response.Details, _response.Roles, date_Expiration, _
 						COOKIE_CURRENT_VERSION, _response.Provider, _response.Email_Address), persist_Login)
+
+					If _Log Then m_log.Flush()
+					Return True
+
+				Else
+
+					If _Log Then
+
+						m_log.WriteLine(String.Format("Auth Failed for User: {0}", username))
+						m_log.Flush()
+					
+					End If
+
+					Return False
+
+				End If
+
+			End Function
+
+			''' <summary></summary>
+			''' <param name="username"></summary>
+			''' <param name="password"></summary>
+			''' <returns></returns>
+			Public Function Login( _
+				ByVal username As System.String, _
+				ByVal password As System.String, _
+				ByRef token As System.String, _
+				ByVal Optional persist_Login As System.Boolean = False _
+			) As System.Boolean
+
+				If _Log Then m_log.WriteLine(String.Format("Auth Request Made for User: {0}", username))
+
+				Dim _request As New Request(username, password, Settings.Cookie_Domain, HttpContext.Current.Request.UserHostAddress, HttpContext.Current.Request.UserAgent, persist_Login, _
+					HttpContext.Current.Request.Url.Host)
+				Dim _response As New Response()
+
+				If Perform_Login(_request, _response) Then
+
+					If _Log Then m_log.WriteLine(String.Format("Auth Success for User: {0} Using Provider: {1}", username, _response.Provider))
+
+					Dim date_Expiration As DateTime
+					If persist_Login Then
+						date_Expiration = DateTime.Now.AddDays(Settings.Cookie_ExpiresInDays)
+					Else
+						date_Expiration = DateTime.Now()
+					End If
+
+					Dim logon_Cookie As New Cookie(Guid.NewGuid(), True, _request.Username, _response.Details, _response.Roles, date_Expiration, _
+						COOKIE_CURRENT_VERSION, _response.Provider, _response.Email_Address)
+					Dim l_cookie_Value As String = logon_Cookie.Write()
+					token = Encrypt_Cookie(l_cookie_Value)
+
+					' -- Write Cookie Hash to File -- '
+					If Settings.Check_Hashes Then
+						Dim cookie_Hash As String = Generate_Hash(l_cookie_Value)
+						System.IO.File.WriteAllText(System.IO.Path.Combine( _
+							Settings.Server_HashPath, logon_Cookie.Id.ToString("N")), cookie_Hash)
+					End If
+					' -- Write Cookie Hash to File -- '
 
 					If _Log Then m_log.Flush()
 					Return True
@@ -331,6 +390,42 @@ Namespace Authentication
 
 			End Function
 
+			Public Function Get_Cookie( _
+				ByVal cookie_As_Token As String _
+			) As Cookie
+
+				Dim ret_Cookie As Cookie = Cookie.Create(Decrypt_Cookie(cookie_As_Token))
+					
+				If ret_Cookie.Authenticated AndAlso ret_Cookie.Version = COOKIE_CURRENT_VERSION Then
+
+					If Settings.Check_Hashes Then
+
+						' -- Read Cookie Hash from File -- '
+						Dim hash_File As String = System.IO.Path.Combine( _
+							Settings.Server_HashPath, ret_Cookie.Id.ToString("N"))
+
+						If System.IO.File.Exists(hash_File) Then
+
+							Dim cookie_Hash As String = Generate_Hash(ret_Cookie.Write())
+
+							If String.Compare(System.IO.File.ReadAllText(hash_File), cookie_Hash) = 0 Then _
+								Return ret_Cookie
+
+						End If
+						' -- Read Cookie Hash from File -- '
+
+					Else
+
+						Return ret_Cookie
+
+					End If
+
+				End If
+
+				Return Nothing
+
+			End Function
+
 		#End Region
 
 		#Region " Friend Cookie Handling Methods "
@@ -362,7 +457,11 @@ Namespace Authentication
 
 		#End Region
 
-		#Region " Public Properties"
+		#Region " Public Token Properties "
+
+		#End Region
+
+		#Region " Public Cookie Properties "
 
 			Public ReadOnly Property Authenticated() As System.Boolean
 				Get
