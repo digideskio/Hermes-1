@@ -9,4 +9,5 @@
 <# Add_Field(n:="Logging_Day", t:="System.DateTime", f:="System.DateTime.Now()") #>
 <# Add_Field(n:="Suppress_Send", t:="System.Boolean", f:="False") #>
 <# Add_Field(n:="Use_SSL", t:="System.Boolean", f:="False") #>
+<# Add_Field(n:="Verify_SSL", t:="System.Boolean", f:="True") #>
 <#@ include file="%TEMPLATES_PATH%\Classes\VB_Object.tt" #>

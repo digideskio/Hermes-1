@@ -345,6 +345,17 @@ Namespace Email
 
 			End Sub
 
+			Public Function ValidateCertificate( _
+				ByVal sender As Object, _
+				ByVal certification As System.Security.Cryptography.X509Certificates.X509Certificate, _
+				ByVal chain As System.Security.Cryptography.X509Certificates.X509Chain, _
+				ByVal sslPolicyErrors As System.Net.Security.SslPolicyErrors _
+			) As Boolean
+        
+				Return True
+
+			End Function
+
 		#End Region
 
 		#Region " Public Methods "
@@ -586,6 +597,10 @@ Namespace Email
 
 							email_Transport = New Mail.SmtpClient(SMTP_Server_Address, SMTP_Port)
 							email_Transport.EnableSsl = Use_SSL
+
+							If Use_SSL AndAlso Not Verify_SSL Then _
+								ServicePointManager.ServerCertificateValidationCallback = AddressOf ValidateCertificate
+
 							email_Transport.Timeout = (SMTP_Timeout * 1000)
 							email_Transport.Credentials = GenerateCredential()
 							If email_Transport.Credentials Is Nothing Then email_Transport.UseDefaultCredentials = True
@@ -824,7 +839,7 @@ Namespace Email
 
 					Throw New ArgumentException("Username must be present", "username")
 
-				ElseIf String.IsNullOrEmpty(domain) Then
+				ElseIf Not username.IndexOf("@") >= 0 AndAlso String.IsNullOrEmpty(domain) Then
 
 					Throw New ArgumentException("Domain must be present", "domain")
 

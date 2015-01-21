@@ -15,8 +15,8 @@
     <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
     <!-- Note: If MSBuild.Community.Tasks is not installed on Build Machine -->
     <!-- Set the MSBuildCommunityTasksPath Property in MSBuild.Community.Tasks.Targets (Packages) to '.' e.g. -->
-    <!-- <MSBuildCommunityTasksPath Condition="'$(MSBuildCommunityTasksPath)' == ''">.</MSBuildCommunityTasksPath> -->
-    <MSBuildTasksPath>Packages\MSBuildTasks.1.4.0.65\tools</MSBuildTasksPath>
+    <MSBuildCommunityTasksPath Condition="'$(MSBuildCommunityTasksPath)' == ''">.</MSBuildCommunityTasksPath>
+    <MSBuildTasksPath>Packages\MSBuildTasks.1.4.0.88\tools</MSBuildTasksPath>
     <NUnitToolPath>Packages\NUnit.Runners.2.6.2\tools</NUnitToolPath>
     <DelaySign>False</DelaySign>
     <AssemblyOriginatorKeyMode>File</AssemblyOriginatorKeyMode>
@@ -81,6 +81,9 @@
     <DebugSymbols>False</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="nunit.framework">
+      <HintPath>Packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -100,11 +103,6 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup Condition=" '$(Configuration)' == 'Debug' ">
-    <Reference Include="nunit.framework">
-      <HintPath>Packages\NUnit.2.6.3\lib\nunit.framework.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
